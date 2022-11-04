@@ -14,14 +14,17 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         SpotifyAccessor accessor = new SpotifyAccessor();
-        for (String artistId : artists.values()) {
-            String response = accessor.get("/artists/" + artistId + "/albums", Map.of());
+        /*for (String artistId : artists.values()) {
+            String response = accessor.get("/artists/" + artistId, Map.of());
             JsonObject jsonObject = new Gson().fromJson(response, JsonObject.class);
             JsonArray items = jsonObject.get("items").getAsJsonArray();
             for (JsonElement item : items) {
                 System.out.println(item.getAsJsonObject().get("name").getAsString());
             }
-        }
+        }*/
+        DataBase base = new DataBase();
+        base.setConnect("C:\\Users\\joaqu\\IdeaProjects\\spotify2\\src\\main\\java\\es\\ulpgc\\spotify\\downloader\\spoti.db");
+
     }
 
     //TODO
