@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6327c01b-1f55-459b-a5d8-f937481fd9be" name="Changes" comment="Commit 4">
+    <list default="true" id="6327c01b-1f55-459b-a5d8-f937481fd9be" name="Changes" comment="Commit V">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/downloader/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/downloader/DataBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/downloader/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/downloader/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +60,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667491691328</updated>
-      <workItem from="1667491692797" duration="31577000" />
+      <workItem from="1667491692797" duration="39172000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1667495543015</created>
@@ -88,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667837960302</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Commit V">
+      <created>1667842202374</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667842202374</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,6 +119,7 @@
     <MESSAGE value="Second Commit" />
     <MESSAGE value="Third Commit" />
     <MESSAGE value="Commit 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit 4" />
+    <MESSAGE value="Commit V" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit V" />
   </component>
 </project>

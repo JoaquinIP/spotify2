@@ -12,8 +12,8 @@ import java.util.Map;
 public class Main {
 
     public static final Map<String, String> artists = Map.of(
-            "Bad Bunny", "4q3ewBCX7sLwd24euuV69X",
-            "Quevedo", "52iwsT98xCoGgiGntTiR7K");
+            "Tongo", "2GXFOqcKmVGfX4OCEKxHFP",
+            "Imagine Dragons", "53XhwfbYqKCa1cC15pYq2q");
 
     public static void main(String[] args) throws Exception {
         SpotifyAccessor accessor = new SpotifyAccessor();
@@ -53,8 +53,8 @@ public class Main {
             }
         }
 
-        DataBase base = new DataBase();
-        base.setConnect("C:\\Users\\joaqu\\IdeaProjects\\spotify2\\src\\main\\java\\es\\ulpgc\\spotify\\downloader\\spoti.db");
+        DataBase base = new DataBase(artists1, albums, tracks);
+        base.setConnect("C:\\Users\\joaqu\\IdeaProjects\\spotify2\\src\\main\\java\\es\\ulpgc\\spotify\\downloader\\spoti.db", artists1, albums, tracks);
 
     }
 
