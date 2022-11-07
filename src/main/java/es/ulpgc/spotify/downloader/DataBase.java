@@ -20,18 +20,20 @@ public class DataBase {
     }
     private static void createTable(Statement statement) throws SQLException {
         statement.execute("CREATE TABLE IF NOT EXISTS artists (" +
-                "popularity INTEGER PRIMARY KEY,\n" +
+                "id TEXT NOT NULL,\n" +
                 "name TEXT NOT NULL,\n" +
-                "id TEXT NOT NULL\n" +
+                "popularity INTEGER PRIMARY KEY\n" +
                 ");");
         statement.execute("CREATE TABLE IF NOT EXISTS albums (" +
-                "total_tracks INTEGER PRIMARY KEY,\n" +
+                "id TEXT NOT NULL,\n" +
                 "name TEXT NOT NULL,\n" +
-                "release_date TEXT NOT NULL\n" +
+                "release_date TEXT NOT NULL,\n" +
+                "total_tracks INTEGER PRIMARY KEY\n" +
                 ");");
         statement.execute("CREATE TABLE IF NOT EXISTS tracks (" +
-                "duration_ms INTEGER PRIMARY KEY,\n" +
+                "id TEXT NOT NULL,\n" +
                 "name TEXT NOT NULL,\n" +
+                "duration_ms INTEGER PRIMARY KEY,\n" +
                 "explicit BOOLEAN NOT NULL CHECK (explicit IN (0, 1))\n" +
                 ");");
     }

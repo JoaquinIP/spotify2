@@ -17,13 +17,23 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         SpotifyAccessor accessor = new SpotifyAccessor();
+        List<Artist> artists1 = new ArrayList<>();
         List<Album> albums = new ArrayList<>();
+        List<Track> tracks = new ArrayList<>();
 
         for (String artistId : artists.values()) {
-            String response = accessor.get("/artists/" + artistId + "/albums", Map.of());
-            JsonObject jsonObject2 = new Gson().fromJson(response, JsonObject.class);
-            JsonArray items = jsonObject2.get("items").getAsJsonArray();
-            for (JsonElement item : items) {
+            String response1 = accessor.get("/artists/" + artistId, Map.of());
+            JsonObject jsonObject1 = new Gson().fromJson(response1, JsonObject.class);
+            String artist_id = jsonObject1.getAsJsonObject().get("id").getAsString();
+            String artist_name = jsonObject1.getAsJsonObject().get("name").getAsString();
+            int popularity = jsonObject1.getAsJsonObject().get("popularity").getAsInt();
+            artists1.add(new Artist(artist_id, artist_name, popularity));
+
+
+            String response2 = accessor.get("/artists/" + artistId + "/albums", Map.of());
+            JsonObject jsonObject2 = new Gson().fromJson(response2, JsonObject.class);
+            JsonArray items2 = jsonObject2.get("items").getAsJsonArray();
+            for (JsonElement item : items2) {
                 String album_id = item.getAsJsonObject().get("id").getAsString();
                 String album_name = item.getAsJsonObject().get("name").getAsString();
                 String release_date = item.getAsJsonObject().get("release_date").getAsString();

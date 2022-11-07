@@ -6,9 +6,9 @@ public class Artist {
     private String name;
     private int popularity;
 
-    public Artist(String name, String id, int popularity) {
-        this.name = name;
+    public Artist(String id, String name, int popularity) {
         this.id = id;
+        this.name = name;
         this.popularity = popularity;
     }
 
