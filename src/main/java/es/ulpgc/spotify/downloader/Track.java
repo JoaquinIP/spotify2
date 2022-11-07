@@ -6,7 +6,10 @@ public class Track {
     private int duration_ms;
     private boolean explicit;
 
-    public Track() {
+    public Track(String name, int duration_ms, boolean explicit) {
+        this.name = name;
+        this.duration_ms = duration_ms;
+        this.explicit = explicit;
     }
 
     public String getName() {

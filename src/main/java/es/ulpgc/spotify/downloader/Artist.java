@@ -2,13 +2,15 @@ package es.ulpgc.spotify.downloader;
 
 public class Artist {
 
-    private String name;
     private String id;
+    private String name;
     private int popularity;
 
-    public Artist() {
+    public Artist(String name, String id, int popularity) {
+        this.name = name;
+        this.id = id;
+        this.popularity = popularity;
     }
-
 
     public String getName() {
         return name;
