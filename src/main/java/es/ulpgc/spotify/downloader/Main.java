@@ -39,6 +39,17 @@ public class Main {
                 String release_date = item.getAsJsonObject().get("release_date").getAsString();
                 int total_tracks = item.getAsJsonObject().get("total_tracks").getAsInt();
                 albums.add(new Album(album_id, album_name, release_date, total_tracks));
+
+                String response3 = accessor.get("/albums/" + album_id + "/tracks", Map.of());
+                JsonObject jsonObject3 = new Gson().fromJson(response3, JsonObject.class);
+                JsonArray items3 = jsonObject3.get("items").getAsJsonArray();
+                for (JsonElement item2 : items3) {
+                    String track_id = item2.getAsJsonObject().get("id").getAsString();
+                    String track_name = item2.getAsJsonObject().get("name").getAsString();
+                    int duration_ms = item2.getAsJsonObject().get("duration_ms").getAsInt();
+                    boolean explicit = item2.getAsJsonObject().get("explicit").getAsBoolean();
+                    tracks.add(new Track(track_id, track_name, duration_ms, explicit));
+                }
             }
         }
 

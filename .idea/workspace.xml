@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6327c01b-1f55-459b-a5d8-f937481fd9be" name="Changes" comment="Third Commit">
+    <list default="true" id="6327c01b-1f55-459b-a5d8-f937481fd9be" name="Changes" comment="Commit 4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/downloader/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/downloader/Artist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/downloader/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/downloader/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/downloader/Track.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/downloader/Track.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +58,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667491691328</updated>
-      <workItem from="1667491692797" duration="27261000" />
+      <workItem from="1667491692797" duration="31577000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1667495543015</created>
@@ -83,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667833479694</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Commit 4">
+      <created>1667837960302</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1667837960302</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,6 +109,7 @@
     <MESSAGE value="First commit" />
     <MESSAGE value="Second Commit" />
     <MESSAGE value="Third Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Third Commit" />
+    <MESSAGE value="Commit 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit 4" />
   </component>
 </project>
