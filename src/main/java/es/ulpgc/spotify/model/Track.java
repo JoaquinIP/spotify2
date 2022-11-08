@@ -1,4 +1,4 @@
-package es.ulpgc.spotify.downloader;
+package es.ulpgc.spotify.model;
 
 public class Track {
 

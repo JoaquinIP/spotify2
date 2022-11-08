@@ -1,4 +1,8 @@
-package es.ulpgc.spotify.downloader;
+package es.ulpgc.spotify.controller;
+
+import es.ulpgc.spotify.model.Album;
+import es.ulpgc.spotify.model.Artist;
+import es.ulpgc.spotify.model.Track;
 
 import java.sql.*;
 import java.util.List;
@@ -6,9 +10,10 @@ import java.util.List;
 
 
 public class DataBase {
-    public DataBase(List<Artist> artists1, List<Album> albums, List<Track> tracks) {
+
+    public DataBase() {
     }
-    public void setConnect(String url, List<Artist> artists1, List<Album> albums, List<Track> tracks){
+    public void setConnect(String url, List<Artist> artists1, List<Album> albums, List<Track> tracks) throws SQLException {
         String dbPath = "jdbc:sqlite:" + url;
         try(Connection connection = connect(dbPath)) {
             Statement statement = connection.createStatement();
@@ -16,7 +21,7 @@ public class DataBase {
             insertArtist(statement, artists1, connection);
             insertAlbum(statement, albums, connection);
             insertTrack(statement, tracks, connection);
-            //insert(statement);
+            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -28,15 +33,16 @@ public class DataBase {
                 "popularity INTEGER\n" +
                 ");");
         statement.execute("CREATE TABLE IF NOT EXISTS albums (" +
-                "id TEXT NOT NULL PRIMARY KEY,\n" +
+                "album_id TEXT NOT NULL PRIMARY KEY,\n" +
                 "name TEXT NOT NULL,\n" +
                 "release_date TEXT NOT NULL,\n" +
                 "total_tracks INTEGER\n" +
                 ");");
         statement.execute("CREATE TABLE IF NOT EXISTS tracks (" +
-                "id TEXT NOT NULL PRIMARY KEY,\n" +
+                "track_id TEXT NOT NULL PRIMARY KEY,\n" +
                 "name TEXT NOT NULL,\n" +
                 "duration_ms INTEGER,\n" +
+                "duration_minutes REAL,\n" +
                 "explicit BOOLEAN\n" +
                 ");");
     }
@@ -57,7 +63,7 @@ public class DataBase {
     }
 
     private static void insertAlbum(Statement statement, List<Album> albums, Connection connection) throws SQLException {
-        String sql = "INSERT INTO albums (id,name,release_date,total_tracks) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO albums (album_id,name,release_date,total_tracks) VALUES (?,?,?,?)";
         for (Album album : albums) {
             try (
                     PreparedStatement pstm = connection.prepareStatement(sql)){
@@ -73,14 +79,15 @@ public class DataBase {
     }
 
     private static void insertTrack(Statement statement, List<Track> tracks, Connection connection) throws SQLException {
-        String sql = "INSERT INTO tracks (id,name,duration_ms,explicit) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO tracks (track_id,name,duration_ms,duration_minutes,explicit) VALUES (?,?,?,?,?)";
         for (Track track : tracks) {
             try (
                     PreparedStatement pstm = connection.prepareStatement(sql)){
                 pstm.setString(1, track.getId());
                 pstm.setString(2, track.getName());
                 pstm.setInt(3, track.getDuration_ms());
-                pstm.setBoolean(4, track.isExplicit());
+                pstm.setFloat(4, (float)track.getDuration_ms() / 60000);
+                pstm.setBoolean(5, track.isExplicit());
                 pstm.executeUpdate();
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
@@ -100,4 +107,6 @@ public class DataBase {
         }
         return conn;
     }
+
+
 }

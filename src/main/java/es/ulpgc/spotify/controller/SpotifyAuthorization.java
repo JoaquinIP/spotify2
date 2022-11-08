@@ -1,4 +1,4 @@
-package es.ulpgc.spotify.downloader;
+package es.ulpgc.spotify.controller;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
