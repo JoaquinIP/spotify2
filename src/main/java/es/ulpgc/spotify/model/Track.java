@@ -2,10 +2,10 @@ package es.ulpgc.spotify.model;
 
 public class Track {
 
-    private String id;
-    private String name;
-    private int duration_ms;
-    private boolean explicit;
+    private final String id;
+    private final String name;
+    private final int duration_ms;
+    private final boolean explicit;
 
     public Track(String id, String name, int duration_ms, boolean explicit) {
         this.id = id;
@@ -28,21 +28,5 @@ public class Track {
 
     public boolean isExplicit() {
         return explicit;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDuration_ms(int duration_ms) {
-        this.duration_ms = duration_ms;
-    }
-
-    public void setExplicit(boolean explicit) {
-        this.explicit = explicit;
     }
 }

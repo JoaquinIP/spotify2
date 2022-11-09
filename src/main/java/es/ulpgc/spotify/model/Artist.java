@@ -2,14 +2,16 @@ package es.ulpgc.spotify.model;
 
 public class Artist {
 
-    private String id;
-    private String name;
-    private int popularity;
+    private final String id;
+    private final String name;
+    private final int popularity;
+    private final int followers;
 
-    public Artist(String id, String name, int popularity) {
+    public Artist(String id, String name, int popularity, int followers) {
         this.id = id;
         this.name = name;
         this.popularity = popularity;
+        this.followers = followers;
     }
 
     public String getName() {
@@ -24,15 +26,7 @@ public class Artist {
         return popularity;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setPopularity(int popularity) {
-        this.popularity = popularity;
+    public int getFollowers() {
+        return followers;
     }
 }

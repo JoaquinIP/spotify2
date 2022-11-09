@@ -13,24 +13,25 @@ public class DataBase {
 
     public DataBase() {
     }
-    public void setConnect(String url, List<Artist> artists1, List<Album> albums, List<Track> tracks) throws SQLException {
+    public void setConnect(String url, List<Artist> artists1, List<Album> albums, List<Track> tracks) {
         String dbPath = "jdbc:sqlite:" + url;
         try(Connection connection = connect(dbPath)) {
             Statement statement = connection.createStatement();
-            createTable(statement);
-            insertArtist(statement, artists1, connection);
-            insertAlbum(statement, albums, connection);
-            insertTrack(statement, tracks, connection);
+            createTables(statement);
+            insertArtist(artists1, connection);
+            insertAlbum(albums, connection);
+            insertTrack(tracks, connection);
             connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    private static void createTable(Statement statement) throws SQLException {
+    private static void createTables(Statement statement) throws SQLException {
         statement.execute("CREATE TABLE IF NOT EXISTS artists (" +
                 "id TEXT NOT NULL PRIMARY KEY,\n" +
                 "name TEXT NOT NULL,\n" +
-                "popularity INTEGER\n" +
+                "popularity INTEGER,\n" +
+                "followers INTEGER\n" +
                 ");");
         statement.execute("CREATE TABLE IF NOT EXISTS albums (" +
                 "album_id TEXT NOT NULL PRIMARY KEY,\n" +
@@ -42,19 +43,20 @@ public class DataBase {
                 "track_id TEXT NOT NULL PRIMARY KEY,\n" +
                 "name TEXT NOT NULL,\n" +
                 "duration_ms INTEGER,\n" +
-                "duration_minutes REAL,\n" +
+                "duration_minutes INTEGER,\n" +
                 "explicit BOOLEAN\n" +
                 ");");
     }
 
-    private static void insertArtist(Statement statement, List<Artist> artists1, Connection connection) throws SQLException {
-        String sql = "INSERT INTO artists (id,name,popularity) VALUES (?,?,?)";
+    private static void insertArtist(List<Artist> artists1, Connection connection) throws SQLException {
+        String sql = "INSERT INTO artists (id,name,popularity,followers) VALUES (?,?,?,?)";
         for (Artist artist : artists1) {
             try (
-                    PreparedStatement pstm = connection.prepareStatement(sql)){
+                PreparedStatement pstm = connection.prepareStatement(sql)){
                 pstm.setString(1, artist.getId());
                 pstm.setString(2, artist.getName());
                 pstm.setInt(3, artist.getPopularity());
+                pstm.setInt(4, artist.getFollowers());
                 pstm.executeUpdate();
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
@@ -62,11 +64,11 @@ public class DataBase {
         }
     }
 
-    private static void insertAlbum(Statement statement, List<Album> albums, Connection connection) throws SQLException {
+    private static void insertAlbum(List<Album> albums, Connection connection) throws SQLException {
         String sql = "INSERT INTO albums (album_id,name,release_date,total_tracks) VALUES (?,?,?,?)";
         for (Album album : albums) {
             try (
-                    PreparedStatement pstm = connection.prepareStatement(sql)){
+                PreparedStatement pstm = connection.prepareStatement(sql)){
                 pstm.setString(1, album.getId());
                 pstm.setString(2, album.getName());
                 pstm.setString(3, album.getRelease_date());
@@ -78,15 +80,15 @@ public class DataBase {
         }
     }
 
-    private static void insertTrack(Statement statement, List<Track> tracks, Connection connection) throws SQLException {
+    private static void insertTrack(List<Track> tracks, Connection connection) throws SQLException {
         String sql = "INSERT INTO tracks (track_id,name,duration_ms,duration_minutes,explicit) VALUES (?,?,?,?,?)";
         for (Track track : tracks) {
             try (
-                    PreparedStatement pstm = connection.prepareStatement(sql)){
+                PreparedStatement pstm = connection.prepareStatement(sql)){
                 pstm.setString(1, track.getId());
                 pstm.setString(2, track.getName());
                 pstm.setInt(3, track.getDuration_ms());
-                pstm.setFloat(4, (float)track.getDuration_ms() / 60000);
+                pstm.setInt(4, track.getDuration_ms() / 60000);
                 pstm.setBoolean(5, track.isExplicit());
                 pstm.executeUpdate();
             } catch (SQLException e) {
