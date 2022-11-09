@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6327c01b-1f55-459b-a5d8-f937481fd9be" name="Changes" comment="Commit 7">
+    <list default="true" id="6327c01b-1f55-459b-a5d8-f937481fd9be" name="Changes" comment="Commit 8">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/controller/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/controller/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/controller/Deserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/model/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/model/Album.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/model/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/model/Artist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/model/Track.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/model/Track.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/controller/SpotifyAuthorization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ulpgc/spotify/controller/SpotifyAuthorization.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +63,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667491691328</updated>
-      <workItem from="1667491692797" duration="71275000" />
+      <workItem from="1667491692797" duration="73983000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1667495543015</created>
@@ -119,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667928489982</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Commit 8">
+      <created>1668016001981</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1668016001981</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +146,7 @@
     <MESSAGE value="Commit V" />
     <MESSAGE value="Commit 6" />
     <MESSAGE value="Commit 7" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit 7" />
+    <MESSAGE value="Commit 8" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit 8" />
   </component>
 </project>
